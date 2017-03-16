@@ -2,48 +2,29 @@
 <!--html manifest="manifest.appcache"-->
 <html>
     <head>
-        <title>Breakout!</title>
+        <title>Fetch!</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         
         <meta name="mobile-web-app-capable" content="yes"/>
         <meta name="apple-mobile-web-app-capable" content="yes"/>
-        <link rel="icon" sizes="192x192" href="images/comet.png"/>
-        <link rel="apple-touch-icon" href="images/comet.png"/>
-        <link rel="shortcut icon" href="images/comet.png" type="image/x-icon"/>
+        <link rel="icon" sizes="192x192" href="images/bone.png"/>
+        <link rel="apple-touch-icon" href="images/bone.png"/>
+        <link rel="shortcut icon" href="images/bone.png" type="image/x-icon"/>
         
         <link rel="stylesheet" type="text/css" href="normalize.css">
         <link rel="stylesheet" type="text/css" href="app_default.css">      
     </head>
     
     <body> 
+        <header>
+            test
+        </header>
         <main>
-            <div id="overlay_container" class="hidden">
-                <div id="overlay_background"></div>
-                <div class="overlay_menu">
-                    <select id="commission_select" class="menu_item design_button">
-                        <option value="1">1 player</option>
-                        <option value="2">2 players</option>
-                    </select>
-                    <a class="design_button" id="start_game" href="#">Go</a>
-                </div>
-            </div>
-            
-            <canvas id="draw_area">Your Browser doesn't support Canvas! :(</canvas>
-            <canvas id="ball_area">Your Browser doesn't support Canvas! :(</canvas>
-            <canvas id="player_area">Your Browser doesn't support Canvas! :(</canvas>
         </main>
         <footer>
-            <!--a id="open_menu_button" class="design_button" href="#">menu</a-->
-            <span id="show_lives"></span>
-            <a id="restart_button" class="design_button" href="#">restart</a>
-                
-                <!-- button onclick="window.location.reload(true);">reload and delete cache</button-->
-            
         </footer>
-        <script src="brick.js"></script>
-        <script src="sprite.js"></script>
-        <script src="before_mods_backup/breakoutModel.js"></script>
-        <script src="before_mods_backup/breakoutView.js"></script> 
-        <script src="before_mods_backup/breakoutController.js"></script>
+        <script src="fetchModel.js"></script>
+        <script src="fetchView.js"></script> 
+        <script src="fetchController.js"></script>
     </body> </html>

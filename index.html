@@ -13,17 +13,23 @@
         <link rel="shortcut icon" href="images/bone.png" type="image/x-icon"/>
         
         <link rel="stylesheet" type="text/css" href="normalize.css">
-        <link rel="stylesheet" type="text/css" href="app_default.css">
         <link rel="stylesheet" type="text/css" href="fetch.css">
     </head>
     
     <body> 
         <header>
-            test
         </header>
         <main>
-            <a class="design_button select_role" href="dog.html">I want my Dog to be walked</a>
-            <a class="design_button select_role" href="walker.html">I want to walk a dog</a>
+            <div class="overlay" id="selection_overlay">
+                <a class="design_button select_role" id="owner_button">I want my Dog to be walked</a>
+                <a class="design_button select_role" id="walker_button">I want to walk a dog</a>
+            </div>
+            <div class="overlay hidden" id="owner_overlay">
+                1
+            </div>
+            <div class="overlay hidden" id="walker_overlay">
+                2
+            </div>
         </main>
         <footer>
             <button onclick="window.location.reload(true);">reload and delete cache (dev mode)</button>

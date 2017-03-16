@@ -26,9 +26,12 @@ html,body{
     height: 100%;
     width: 100%;
 }
-
+header {
+    height: 10%;
+    background-color: lightblue;
+}
 main {
-    height: 90%;
+    height: 80%;
     background-color: skyblue;
 }
 

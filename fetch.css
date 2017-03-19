@@ -7,8 +7,6 @@ and open the template in the editor.
     Created on : Mar 16, 2017, 4:29:38 PM
     Author     : Bofrostmann
 */
-
-
 * {
     padding: 0;
     margin: 0;
@@ -30,18 +28,22 @@ html,body{
 }
 
 header {
-    height: 10%;
+    height: 9%;
     background-color: lightblue;
 }
 
 main {
-    height: 80%;
+    height: 81%;
     background-color: skyblue;
 }
 
 footer {
-    height: 10%;
+    height: 9%;
     background-color: lightblue;
+}
+
+.map {
+    height: 100%;
 }
 
 

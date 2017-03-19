@@ -6,28 +6,27 @@
 /*jslint node: true, browser: true */
 "use strict";
 
-function Map(id) {
+function Map(id, user_cb) {
     this.googleMap = new google.maps.Map(document.getElementById(id), {
         center: {lat: -34.397, lng: 150.644},
         zoom: 12
     });
+    this.user_callback = user_cb;
+    this.path = null;
 }
 
 Map.prototype.setCurrentLocation = function () {
     var map = this.googleMap;
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            var pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-            
+        navigator.geolocation.getCurrentPosition(function (position) {     
+            //Longitude is left / rigt
             var myLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
             map.setCenter(myLatLng);
             var userMarker = new google.maps.Marker({
                 position: myLatLng,
-                map: map
+                map: map,
+                icon: 'bluecircle.png'
             });
             
             
@@ -44,8 +43,35 @@ Map.prototype.setCurrentLocation = function () {
     }
 };
 
-
-Map.prototype.init = function () {
+Map.prototype.addUser = function (position, user_name, user_id) {
+    var userMarker = new google.maps.Marker({
+                position: position,
+                map: this.googleMap,
+                title: user_name
+            });
+    var _this = this;
+            
+    userMarker.addListener('click', function () {
+        _this.user_callback(user_id);
+    });
 };
 
+
+Map.prototype.startPath = function (position) {
+    //Longitude is left / rigt
+    console.log("test");
+    this.path = new google.maps.Polyline({
+    path: [new google.maps.LatLng(position.coords.latitude, position.coords.longitude)],
+    geodesic: false,
+    strokeColor: '#FF0000',
+    strokeOpacity: 1.0,
+    strokeWeight: 2,
+    map: this.googleMap
+  });
+};
+
+
+Map.prototype.addToPath = function (position) {
+    this.path.getPath().push(position);
+};
 

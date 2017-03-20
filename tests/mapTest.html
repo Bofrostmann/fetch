@@ -20,7 +20,7 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="../fetch.css"/>
     </head>
   <body>
-    <div id="map" class="map"></div>
+    <div id="map_div" class="map"></div>
     <div id="show_user"></div>
     
     <!-- This is mandatory for the map!  -->
@@ -36,7 +36,7 @@ and open the template in the editor.
         // The cb_function is the function, that is called when a user_icon is clicked. It takes one argument.
         // In the call, the Argument is the id of the icon.
         // The idea is to make a callback function, that displays a user by id.
-        var map = new Map('map', cb_function);
+        var map = new Map('map_div', cb_function);
         map.setCurrentLocation();
         
         //Get the current Position

@@ -26,7 +26,7 @@ Map.prototype.setCurrentLocation = function () {
             var userMarker = new google.maps.Marker({
                 position: myLatLng,
                 map: map,
-                icon: 'bluecircle.png'
+                icon: '../images/bluecircle.png'
             });
             
             

@@ -23,20 +23,15 @@
             <div class="overlay" id="selection_overlay">
                 <!--When doing the settings-pages, feel free to add a classic href 
                         and remove the onclick in the fetchView.js -->
-                <a class="design_button select_role" id="owner_button">I want my Dog to be walked</a>
-                <a class="design_button select_role" id="walker_button">I want to walk a dog</a>
-            </div>
-            <div class="overlay hidden" id="owner_overlay">
-                <p>this will be the page for dog owners</p>
-            </div>
-            <div class="overlay hidden" id="walker_overlay">
-                <p>this will be the page for dog walkers</p>
+                <a class="design_button select_role" id="owner_button" href="ownerProfile.html">I want my Dog to be walked</a>
+                <a class="design_button select_role" id="walker_button" href="walkerProfile.html">I want to walk a dog</a>
             </div>
         </main>
         <footer>
             <button onclick="window.location.reload(true);">reload and delete cache (dev mode)</button>
             <a class="design_button" href="tests/mapTest.html">mapTest (dev mode)</a>
         </footer>
+        <!-- I'm not even sure, we need this... I just added it out of habit  -->
         <script src="fetchModel.js"></script>
         <script src="fetchView.js"></script> 
         <script src="fetchController.js"></script>

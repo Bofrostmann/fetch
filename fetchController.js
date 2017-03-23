@@ -16,8 +16,6 @@ function FetchController() {
     this.init = function () {
         fetchView = new FetchView();
         fetchModel = new FetchModel();
-        
-        fetchView.init();
     };
 }
 

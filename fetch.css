@@ -21,7 +21,6 @@ and open the template in the editor.
                                   supported by Chrome and Opera */
 }
 
-
 html,body{
     height: 100%;
     width: 100%;
@@ -43,6 +42,18 @@ footer {
 }
 
 .map {
+    height: 100%;
+}
+
+.top_info {
+    height: 10%;
+}
+
+.bottom_info {
+    height: 10%;
+}
+
+#map_div {
     height: 80%;
 }
 

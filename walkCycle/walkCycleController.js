@@ -1,7 +1,5 @@
 /* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * © 2017-03: Florian Haimerl
  */
 
 /*jslint node: true, browser: true */
@@ -9,14 +7,23 @@
 /*global WalkCycleView*/
 "use strict";
 
-function WalkCycleController() {
-}
+var model = new WalkCycleModel();
+var view = new WalkCycleView();
 
-WalkCycleController.prototype.init = function () {
-    var view = new WalkCycleView(),
-        model = new WalkCycleModel();
-    view.setTopInfoContent(model.getNameOfDog());
-};
+function WalkCycleController() {
+    this.init = function () {
+        var interval_id = setInterval(function () {
+            if(!model.PositionIsSet()) {
+                return;
+            }
+            view.setGetDogCallback(model.getDog);
+            model.init();
+            model.setSetModeCallback(view.setMode);
+            model.setMode("pick_up");
+            clearInterval(interval_id);
+        },250);
+    };
+}
 
 
 var controller = new WalkCycleController();

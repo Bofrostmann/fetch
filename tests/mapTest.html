@@ -42,16 +42,10 @@ and open the template in the editor.
         navigator.geolocation.getCurrentPosition(function (position) {     
             //generate a position that is close to the current position
             //(Reminder: Longitude is left / rigt)
-            var position1 = new google.maps.LatLng(position.coords.latitude, position.coords.longitude + 0.05);
+            var position1 = new google.maps.LatLng(position.coords.latitude, position.coords.longitude + 0.005);
             // add a User marker with the generated Position
-            map.addUser(position1, "FH", 100);
+            map.addMarker(position1, "FH", 100);
             
-            //Stuff for creating a path, still in development!
-            map.startPath(position);
-            setTimeout(function() {
-                var position2 = new google.maps.LatLng(position.coords.latitude, position.coords.longitude + 0.1);
-                map.addToPath(position2);
-            }, 3000);
             
         }, function () {
             handleLocationError(true, infoWindow, this.googleMap.getCenter());

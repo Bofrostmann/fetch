@@ -63,10 +63,13 @@ Map.prototype.addMarker = function (position, user_name, user_id, is_target) {
     }
 };
 
-
 Map.prototype.updatePath = function () {
     var position = this.blue_marker.getPosition();
     this.path.getPath().push(position);
+};
+
+Map.prototype.clearPath = function () {
+    this.path.getPath().clear();
 };
 
 Map.prototype.onPositionUpdate = function (pos) {

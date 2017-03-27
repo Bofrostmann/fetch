@@ -22,7 +22,11 @@ function WalkCycleModel() {
         dog = null, //TODO: just a placeholder
         setModeCallback = null,
         mode = "",
-        max_target_distance = 10; //in metres
+        max_target_distance = 10,//in metres
+//TODO I hat this! There has to be a better solution! :/ 
+//Reason for this: startwalk and stopwalk are onclick, therefore "this" is the button
+        that = this;
+
 
     this.init = function () {
         dog = {name: "Fido",
@@ -44,35 +48,57 @@ function WalkCycleModel() {
     };
 
     this.setMode = function (m) {
-        var that = this;
         mode = m;
-        switch (mode) {
-        case 'pick_up':
-            if (role === 'walker') {
+        console.log("model_mode: " + mode);
+        if (role === 'walker') {
+            switch (mode) {
+            case 'pick_up':
+                map.clearPath();
                 map.setPositionUpdateCallback(function () {
                     if (map.getDistanceToTarget() <= max_target_distance) {
                         window.alert('reached target! Start walk:');
-                        that.setMode('walk');
+                        that.setMode('start_walk');
                     }
                 });
-            } else {
-                //TODO
-            }
-            break;
-        case 'walk':
-            map.updatePath();
-            map.setPositionUpdateCallback(function () {
+                break;
+            case 'start_walk':
+                break;
+            case 'walk':
                 map.updatePath();
-                console.log(map.getLengthOfPathInM());
-            });
-            break;
-        case 'return':
-            break;
-        default:
+                map.setPositionUpdateCallback(function () {
+                    map.updatePath();
+                    console.log(map.getLengthOfPathInM());
+                });
+                break;
+            case 'return':
+                map.setPositionUpdateCallback(function () {
+                    if (map.getDistanceToTarget() <= max_target_distance) {
+                        window.alert('reached target! we should get to the finish page here! Instead, we are picking up again');
+                        that.setMode('pick_up');
+                    }
+                });
+                break;
+            default:
 
-            break;
+                break;
+            }
         }
-        setModeCallback(mode);
+        else {
+               switch (mode) {
+            case 'pick_up':
+                break;
+            case 'start_walk':
+                break;
+            case 'walk':
+                break;
+            case 'return':
+                break;
+            default:
+
+                break;
+            }
+           }
+        setModeCallback(mode, role);
     };
 
 
@@ -82,5 +108,16 @@ function WalkCycleModel() {
 
     this.onMarkerClick = function (id) {
         window.alert(id);
+    };
+    var setMode = function (test) {
+        window.alert(test);
+        
+    };
+    this.startWalk = function () {
+        that.setMode("walk");
+    };
+    
+    this.stopWalk = function () {
+        that.setMode("return");
     };
 }

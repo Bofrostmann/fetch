@@ -17,6 +17,8 @@ function WalkCycleController() {
                 return;
             }
             view.setGetDogCallback(model.getDog);
+            view.setStartWalkCallback(model.startWalk);
+            view.setStopWalkCallback(model.stopWalk);            
             model.init();
             model.setSetModeCallback(view.setMode);
             model.setMode("pick_up");

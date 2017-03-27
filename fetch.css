@@ -45,16 +45,24 @@ footer {
     height: 100%;
 }
 
-.top_info {
-    height: 10%;
-}
-
-.bottom_info {
-    height: 10%;
-}
-
 #map_div {
     height: 80%;
+/*    margin-bottom: 1%;
+    margin-top: 1%;*/
+}
+
+
+#toggle_walk_button {
+    display: block;
+    width: 80%;
+    height: 80%;
+    margin-left: 10%;
+    margin-top: 1%;
+}
+
+.info_div {
+    width: 100%;
+    height: 10%;
 }
 
 #show_user {
@@ -71,8 +79,6 @@ footer {
 }
 
 .design_button {
-    margin: 0.2rem;
-    padding: 0.3rem;
     text-align: center;
     color: #fff;
     text-shadow: -2px 2px #306090;
@@ -100,9 +106,11 @@ footer {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .hidden * {
-    display: none;
+    display: none !important;
 }
+
+
